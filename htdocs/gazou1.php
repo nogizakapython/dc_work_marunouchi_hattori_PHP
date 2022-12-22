@@ -1,4 +1,12 @@
 <?php
+    $host = 'mysql34.conoha.ne.jp';
+    $login_user = 'bcdhm_nagoya_pf0005';
+    $password = 'Mt3!+qa_';
+    $database = 'bcdhm_nagoya_pf0005';
+    $error_msg = [];
+    $product_name;
+    $price;
+    $price_val;
     $file_name = "testgazou.txt";
     $out = '';
     $flag = 0;
@@ -29,7 +37,7 @@
             $save = 'img/' . basename($_FILES['upfile']['name']);
             $check = basename($_FILES['upfile']['name']);
             echo $check;
-            if(preg_match('/\.jpg+$ | \.png$/i',$check)){
+            if(preg_match('/\.jpg/',$check) == 1 || preg_match('/\.png$/',$check) == 1){
                 if($str == $check){
                     $flag += 1;
                 } else {
@@ -64,15 +72,15 @@
              $db->begin_transaction();	// トランザクション開始
 
              //INSERT文の実行
-             $insert = "INSERT INTO pictable(image_name,public_flag,create_date) VALUE 
-            ({$image_name},{$public_flag},{$create_date});";
+             $insert = "INSERT INTO pictable(image_name,public_flg,create_date,update_date) VALUE 
+            ('{$image_name}',{$public_flag}, '{$create_date}','{$create_date}');";
             if($result = $db->query($insert)) {
                 $row = $db->affected_rows;
             } else {
                 $error_msg[] = 'INSERT実行エラー [実行SQL]' . $insert;
             }
             //$error_msg[] = '強制的にエラーメッセージを挿入';
-
+            print_r($error_msg);
             //エラーメッセージ格納の有無によりトランザクションの成否を判定
             if (count($error_msg) == 0) {
                 echo $row.'件更新しました。'; 

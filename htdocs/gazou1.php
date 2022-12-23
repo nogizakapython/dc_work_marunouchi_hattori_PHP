@@ -117,7 +117,7 @@
         
         .disp1{
             margin-top:30px;
-            width:900px;
+            width:780px;
             height:240px;
             display:flex;
         }

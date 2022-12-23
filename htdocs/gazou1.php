@@ -4,9 +4,6 @@
     $password = 'Mt3!+qa_';
     $database = 'bcdhm_nagoya_pf0005';
     $error_msg = [];
-    $product_name;
-    $price;
-    $price_val;
     $file_name = "testgazou.txt";
     $out = '';
     $flag = 0;
@@ -55,6 +52,13 @@
         fputs($fp,$out);
         fclose($fp);
     } else {
+        //ファイルを保存先ディレクトリに移動させる
+        if(move_uploaded_file($_FILES['upfile']['tmp_name'], $save)){
+            echo 'アップロード成功しました。';
+        }else{
+            echo 'アップロード失敗しました。';
+        }
+        
         $db = new mysqli($host, $login_user, $password, $database);
         if ($db->connect_error){
             echo $db->connect_error;
@@ -110,6 +114,20 @@
             font-size:16px;
             color:#F00;
         }
+        
+        .disp1{
+            margin-top:30px;
+            width:900px;
+            height:240px;
+            display:flex;
+        }
+        .pic1 {
+            width:90px;
+            font-size:14px;
+        }
+        .test1{
+            width:200px;
+        }
     </style>
 </head>
 <body>
@@ -122,6 +140,28 @@
         <input type="file" name="upfile">
         <input type="submit" name="submit" value="送信">
     </form>
+    <p>画像一覧ページへのリンク</p>
+    <a href="https://portfolio.dc-itex.com/nagoya/0005/htdocs/gazou2.php">画像一覧ページへ</a>
+    
+    <?php
+        $db = new mysqli($host, $login_user, $password, $database);
+        if ($db->connect_error){
+          echo $db->connect_error;
+          exit();
+        } else {
+          $db->set_charset("utf8");
+        }
+        $sql = "select image_name from pictable order by image_id";
+        if($result = $db->query($sql)) {
+          foreach ($result as $row){
+            echo "<div class=disp1>";
+            echo "<p class=pic1>" . $row["image_name"] . "</p>";
+            echo "<img class=test1 src=https://portfolio.dc-itex.com/nagoya/0005/htdocs/img/" . $row["image_name"] . ">";
+            echo "</div>";
+          }
+          $result->close();
+        }
+    ?>
      
 </body>
 </html>

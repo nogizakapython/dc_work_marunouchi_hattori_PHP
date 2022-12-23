@@ -37,7 +37,7 @@
             $save = 'img/' . basename($_FILES['upfile']['name']);
             $check = basename($_FILES['upfile']['name']);
             echo $check;
-            if(preg_match('/\.jpg/',$check) == 1 || preg_match('/\.png$/',$check) == 1){
+            if(preg_match('/\.(jpe?g|png)\z/i', $check) == 1){
                 if($str == $check){
                     $flag += 1;
                 } else {

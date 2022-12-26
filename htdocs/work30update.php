@@ -50,6 +50,6 @@
     }
 
     ?>
-    <meta http-equiv="refresh" content="10;URL=https://portfolio.dc-itex.com/nagoya/0005/htdocs/work30.php">
+    <meta http-equiv="refresh" content="2;URL=https://portfolio.dc-itex.com/nagoya/0005/htdocs/work30.php">
 </body>
 </html>

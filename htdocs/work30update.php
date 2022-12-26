@@ -15,6 +15,7 @@
 </head>
 <body>
 <?php  
+      $date = date("Y-m-d");
       $db = new mysqli($host, $login_user, $password, $database);
       if ($db->connect_error){
         echo $db->connect_error;

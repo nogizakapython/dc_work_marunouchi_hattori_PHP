@@ -215,32 +215,7 @@
           $result->close();
         }
 
-        // 受け取ったデータのレコードを更新する
-         if (isset($_POST["image_id"])) {
-            $image_id = $_POST["image_id"];
-            if($_POST["public_flag"] == 1){
-                $update  = "update pictable set public_flg = 0,update_date = '${date}' WHERE image_id = ${image_id};";
-            } else if ($_POST["public_flag"] == 0) {
-                $update  = "update pictable set public_flg = 1,update_date = '${date}' WHERE image_id = ${image_id};";
-            }    
-            echo $update;
-            if($result = $db->query($update)) {
-                $row = $db->affected_rows;
-            } else {
-                $error_msg[] = 'UPDATE実行エラー [実行SQL]' . $update;
-            }
-            //$error_msg[] = '強制的にエラーメッセージを挿入';
-            print_r($error_msg);
-            //エラーメッセージ格納の有無によりトランザクションの成否を判定
-            if (count($error_msg) == 0) {
-                echo $row.'件更新しました。'; 
-                $db->commit();	// 正常に終了したらコミット
-            } else {
-                echo '更新が失敗しました。'; 
-                $db->rollback();	// エラーが起きたらロールバック
-            }
-        }
-
+        
     ?>
      
 </body>

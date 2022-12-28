@@ -17,12 +17,12 @@
         } else {
             $cookie_confirmstion = "";
         }
-        if(isset($_COOKIE['user_name']) === TRUE){
+        if(isset($_COOKIE['user_name']) == TRUE){
             $user_name = "checked";
         } else {
             $user_name = '';
         }
-        if(isset($_COOKIE['password']) === TRUE){
+        if(isset($_COOKIE['password']) == TRUE){
             $password = "checked";
         } else {
             $password = '';

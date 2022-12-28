@@ -85,5 +85,9 @@ try{
 </head>
 <body>
     <p>ログイン（疑似的)が完了しました</p>
+    <?php
+        // 3秒後にログイン画面に戻る
+        header("refresh:3;url=work37.php");
+    ?>
 </body>
 </html>

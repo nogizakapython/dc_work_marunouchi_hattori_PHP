@@ -16,7 +16,7 @@
 </head>
 <body>
   <?php
-    function sum($a,$b,$c) {
+    function calc($a,$b,$c) {
       $total = $a + $b + $c;
       // 条件演算子($total>=0ならそのまま、$total<0なら0を返す)
       return $total >= 0 ? $total : 0;
@@ -24,9 +24,9 @@
     function show($num){
       echo "<p class=a>$num</p>";
     }
-    $a = sum(40,200,70);
+    $a = calc(400,200,700);
     show($a);
-    $b = sum(-400,200,70);
+    $b = calc(-400,200,700);
     show($b);
 
   ?>

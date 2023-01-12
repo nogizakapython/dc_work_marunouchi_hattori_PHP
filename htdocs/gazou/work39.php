@@ -97,10 +97,7 @@
           echo "<div class=disp1>";
             
           foreach ($result as $row){
-            if($count % 3 == 2){
-                echo "<br>";
-              
-            }
+            
             echo "<div class=example1>";
             if($row['public_flg'] == 1){
                 echo "<p class=pic1>" . $row["image_name"] . "</p>";
@@ -119,7 +116,7 @@
             }    
 			echo "</form>";
             echo "</div>";
-            $count += 1;
+            
           }
           echo "</div>";
           // $result->close();

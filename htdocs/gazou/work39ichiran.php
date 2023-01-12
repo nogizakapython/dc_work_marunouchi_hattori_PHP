@@ -26,6 +26,7 @@
             margin-top:30px;
             width:820px;
             display:flex;
+            flex-wrap:wrap;
             background-color: #FFF;
         }
         body .disp1 .example1 {

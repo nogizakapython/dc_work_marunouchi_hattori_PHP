@@ -32,6 +32,7 @@
         body .disp1 .example1 {
             width:240px;
             margin-left:20px;
+            margin-top:20px;
             border: solid 3px #6091d3;/*線*/
             border-radius: 10px;/*角の丸み*/
         }

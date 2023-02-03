@@ -27,12 +27,19 @@
   $stmt->bindValue(':mail', $mail);
   $stmt->execute();
   $member = $stmt->fetch();
+
+
   //指定したハッシュがパスワードにマッチしているかチェック
+  if($_SERVER ['REQUEST_METHOD'] !== 'POST'){
+    $msg = "ログインページに戻ってください";
+    $link = '<a href="login_form.php">戻る</a>';
+
+  }
   if ($_POST['pass'] == $member['pass']) {
     //DBのユーザー情報をセッションに保存
+    $msg = 'ログインしました。';
     $_SESSION['id'] = $member['id'];
     $_SESSION['name'] = $member['name'];
-    $msg = 'ログインしました。';
     $link = '<a href="index.php">ホーム</a>';
   } else {
     $msg = 'メールアドレスもしくはパスワードが間違っています。';

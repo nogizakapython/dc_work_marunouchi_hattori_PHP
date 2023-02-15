@@ -20,9 +20,9 @@
         $write1 = file_put_contents("bbs.txt", $result,FILE_APPEND);
         
         if($write1){
-            echo "ファイルの書き込みが成功しました";
+            echo "ファイルの書き込みが成功しました。";
         } else {
-            echo "ファイルの書き込みに失敗しました";
+            echo "ファイルの書き込みに失敗しました。";
         }
             
         

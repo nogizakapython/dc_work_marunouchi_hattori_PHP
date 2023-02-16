@@ -9,29 +9,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BBS掲示板</title>
+    <link rel="stylesheet" href="common.css">
 </head>
 <body>
     <?php
+        // メッセージ出力変数の定義
+        $msg1 = "タイトルを入力してください";
+        $msg2 = "内容を入力してください";
+        // メッセージ出力配列の定義
+        $msg_arr = [];
 
+        // リンク先表示関数
         function out_url() {
             echo "<a href=index.php>掲示板へ</a>";
         }
 
+        // 文字列の長さ取得関数
+        function count_str($str){
+            $str = str_replace(array(" ","　"),"",$str);
+            return strlen($str);
+        }
+
         // タイトルを取得する変数
         $title = $_POST["title"];
-        $title = str_replace(array(" ","　"),"",$title);
-        // 入力チェック
-        if(strlen($title) == 0){
-            echo "タイトルを入力してください";
-            out_url();
-            exit();
+        #入力チェック関数
+        $count1 = count_str($title);
+        // 入力チェック確認
+        if($count1 == 0){
+            array_push($msg_arr,$msg1);
         }
         // 内容を取得する変数
         $sum = $_POST["sum"];
-        $sum = str_replace(array(" ","　"),"",$sum);
-        // 入力チェック
-        if(strlen($sum) == 0){
-            echo "内容を入力してください";
+        // 入力チェック関数
+        $count2 = count_str($sum);
+        // 入力チェック確認
+        if($count2 == 0){
+            array_push($msg_arr,$msg2);
+        }
+        $num = count($msg_arr);
+        #入力されていない項目があれば表示して処理を終了する
+        if($num >= 1){
+            foreach($msg_arr as $msg){
+                echo "<p class='errmsg'>{$msg}</p>";
+            }
             out_url();
             exit();
         }
@@ -52,13 +72,12 @@
 
         // ファイルの書き込みチェック処理
         if($write1){
-            echo "ファイルの書き込みが成功しました。";
+            echo "<p class='fmsg'>ファイルの書き込みが成功しました。</p>";
         } else {
-            echo "ファイルの書き込みに失敗しました。";
+            echo "<p class='fmsg'>ファイルの書き込みに失敗しました。</p>";
         }
 
         out_url();
-
 
     ?>
 </body>

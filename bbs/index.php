@@ -1,3 +1,7 @@
+<!-- 掲示板プログラム -->
+<!-- 新規作成 2022/2/15 -->
+<!-- 掲示板書き込みフォームと投稿一覧 -->
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -5,6 +9,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BBS掲示板</title>
+    <style>
+        .ichiran {
+            color:#c10763;
+            font-size:20px;
+        }
+    </style>
 </head>
 <body>
 
@@ -23,11 +33,9 @@
         <br>
     </form>
 
-    <p> 書き込み結果 </p>
+    <p class="ichiran"> 投稿一覧 </p>
     <?php
         $fp = file_get_contents("bbs.txt");
         echo $fp;
-
-
     ?>
 </html>

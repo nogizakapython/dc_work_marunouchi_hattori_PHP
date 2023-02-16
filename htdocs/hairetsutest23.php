@@ -17,8 +17,7 @@
   <?php
     $colors = ["red" => "赤","blue" => "青","yellow" => "黄"];
 
-    // 要素を昇順に並び替える
-   $picked = krsort($colors);
+
 
    foreach($colors as $key => $value){
     echo "<p class='test1'> {$key}は日本語で{$value}です";

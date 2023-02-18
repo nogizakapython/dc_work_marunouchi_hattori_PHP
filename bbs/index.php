@@ -4,6 +4,7 @@
 <!-- 2023/2/18 textareaの修正、ファイルがない場合はファイル作成処理を追加 -->
 <?php
     $file_name = "bbs.txt";
+    // ファイルが存在しない場合は新規作成
     if(!file_exists($file_name)){
         touch($file_name);
     }

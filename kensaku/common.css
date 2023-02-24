@@ -14,16 +14,14 @@
   width:30%;
 }
 
-.item1 .list1 {
-  text-decoration: none;
-}
-
 .item1 li {
   list-style:none;
-  width:70px;
+
+  width:80px;
   background-color: #FF0000;
 }
 
 li a {
   color:#00FFc1;
+  text-decoration: none;
 }

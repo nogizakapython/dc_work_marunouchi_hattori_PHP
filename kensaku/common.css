@@ -1,0 +1,29 @@
+/* 新規作成 2023/2/24 */
+/*  common.css */
+/* 各プログラムのCSS */
+
+@charset 'utf8';
+
+.title1 {
+  width:60%;
+  color:#AF00F1;
+  background-color:#00FFFF;
+}
+
+.item1 {
+  width:30%;
+}
+
+.item1 .list1 {
+  text-decoration: none;
+}
+
+.item1 li {
+  list-style:none;
+  width:70px;
+  background-color: #FF0000;
+}
+
+li a {
+  color:#00FFc1;
+}
